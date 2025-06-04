@@ -429,6 +429,7 @@ public class Emne01OpgaverArrays {
                 participantsArray[index - 1] = null;
                 currentNumberOfParticipants--;
                 return true;
+
             }
         }
     }
