@@ -1,7 +1,6 @@
 package emne01_arrays; // Husk at sætte den korrekte package øverst i din fil
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  * Generel Beskrivelse for Opgavesættet Emne 1: Arrays
@@ -57,140 +56,6 @@ public class Emne01OpgaverArrays {
         // Husk at kopiere eventuelle resterende elementer fra det ene array,
         // når det andet er løbet tørt.
         return null; // Skal erstattes med det flettede array
-    }
-
-    /**
-     * Opgave 1.3: Administration af Kursusdeltagere (med Array)
-     * -------------------------------------------------------
-     * Beskrivelse:
-     * Du skal lave et simpelt system til at administrere deltagere på et kursus,
-     * hvor du eksplicit bruger et array til at gemme deltagerne. Dette indebærer at
-     * oprette en 'Participant' klasse og en 'Course' klasse. 'Course' klassen
-     * skal indeholde et array af 'Participant' objekter og metoder til at
-     * tilføje, finde, udskrive og fjerne deltagere.
-     * Opgaven fokuserer på manuel håndtering af arrayets faste størrelse,
-     * inklusiv at rykke elementer ved fjernelse.
-     * <p>
-     * Delopgaver (implementeres som metoder i Course-klassen nedenfor):
-     * - opgave1_3_addParticipant(Participant p)
-     * - opgave1_3_findParticipantById(int participantId)
-     * - opgave1_3_printAllParticipants()
-     * - opgave1_3_removeParticipantById(int participantId)
-     */
-    // --- Hjælpeklasser for Opgave 1.3 følger herunder ---
-    static class Participant {
-        String name;
-        int participantId;
-
-        public Participant(String name, int id) {
-            this.name = name;
-            this.participantId = id;
-        }
-
-        public int getParticipantId() {
-            return participantId;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        @Override
-        public String toString() {
-            return "ID: " + participantId + ", Navn: " + name;
-        }
-
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-            Participant that = (Participant) o;
-            return participantId == that.participantId;
-        }
-    }
-
-    static class Course {
-        private String courseName;
-        private Participant[] participantsArray;
-        private int currentNumberOfParticipants;
-        private int maxParticipants;
-
-        public Course(String courseName, int maxParticipants) {
-            this.courseName = courseName;
-            if (maxParticipants < 0) {
-                this.maxParticipants = 0;
-            } else {
-                this.maxParticipants = maxParticipants;
-            }
-            this.participantsArray = new Participant[this.maxParticipants];
-            this.currentNumberOfParticipants = 0;
-        }
-
-        public int getCurrentNumberOfParticipants() {
-            return currentNumberOfParticipants;
-        }
-
-        public int getMaxParticipants() {
-            return maxParticipants;
-        }
-
-        public Participant[] getParticipantsDirectlyForTest() {
-            return participantsArray;
-        }
-
-
-        /**
-         * Opgave 1.3 Delopgave: addParticipant
-         * Beskrivelse: Tilføjer en deltager til kurset, hvis der er plads.
-         */
-        public boolean opgave1_3_addParticipant(Participant p) {
-            // TODO: Implementer addParticipant.
-            // Tjek for null deltager.
-            // Tjek om der er plads i arrayet (baseret på maxParticipants).
-            // Hvis ja, tilføj og returner true. Ellers returner false.
-            return false;
-        }
-
-        /**
-         * Opgave 1.3 Delopgave: findParticipantById
-         * Beskrivelse: Finder og returnerer en deltager baseret på ID.
-         */
-        public Participant opgave1_3_findParticipantById(int participantId) {
-            // TODO: Implementer findParticipantById.
-            // Iterer gennem de 'currentNumberOfParticipants' og returner deltageren hvis ID matcher.
-            // Returner null hvis ikke fundet.
-            return null;
-        }
-
-        /**
-         * Opgave 1.3 Delopgave: printAllParticipants
-         * Beskrivelse: Udskriver information om alle tilmeldte deltagere.
-         */
-        public void opgave1_3_printAllParticipants() {
-            System.out.println("Deltagere på kurset '" + courseName + "' (Max: " + maxParticipants + ", Aktuelt: " + currentNumberOfParticipants + "):");
-            // TODO: Implementer printAllParticipants.
-            // Iterer og udskriv. Håndter tom liste.
-            if (currentNumberOfParticipants == 0) {
-                System.out.println("  (Ingen tilmeldte deltagere)");
-            } else {
-                // Din udskriftslogik her
-            }
-        }
-
-        /**
-         * Opgave 1.3 Delopgave: removeParticipantById
-         * Beskrivelse: Finder og fjerner en deltager baseret på ID, og rykker elementer sammen.
-         */
-        public boolean opgave1_3_removeParticipantById(int participantId) {
-            // TODO: Implementer removeParticipantById.
-            // 1. Find indekset for deltageren. Hvis ikke fundet, returner false.
-            // 2. Hvis fundet:
-            //    a. Flyt alle efterfølgende elementer én plads til venstre.
-            //    b. Sæt den sidste "aktive" plads til null.
-            //    c. Dekrementer currentNumberOfParticipants.
-            //    d. Returner true.
-            return false;
-        }
     }
 
     /**
@@ -315,7 +180,7 @@ public class Emne01OpgaverArrays {
      * Skriv en statisk metode `opgave1_6_reverseArrayInPlace(int[] arr)`, der omvender
      * rækkefølgen af elementerne i det givne array `arr` direkte.
      * Metoden skal *ikke* returnere et nyt array, men modificere `arr`.
-     *
+     * <p>
      * Eksempel:
      * Hvis arr er {1, 2, 3, 4, 5}, skal arr efter kaldet være {5, 4, 3, 2, 1}.
      */
@@ -334,7 +199,7 @@ public class Emne01OpgaverArrays {
      * Hvis værdien ikke findes, eller hvis input-arrayet er null/tomt,
      * skal der returneres et tomt array (f.eks. `new int[0]`).
      * Rækkefølgen af indekser i resultat-arrayet skal være stigende.
-     *
+     * <p>
      * Eksempel:
      * arr = {1, 5, 2, 5, 3, 5}, valueToFind = 5 => returnerer {1, 3, 5}
      */
@@ -354,7 +219,7 @@ public class Emne01OpgaverArrays {
      * Hvis `ascending` er `true`, tjekkes for stigende orden.
      * Hvis `ascending` er `false`, tjekkes for faldende orden.
      * Et array med 0 eller 1 element betragtes altid som sorteret.
-     *
+     * <p>
      * Eksempel:
      * arr = {1, 3, 5, 7}, ascending = true => returnerer true
      * arr = {7, 5, 3, 1}, ascending = false => returnerer true
@@ -374,7 +239,7 @@ public class Emne01OpgaverArrays {
      * array af heltal `arr` (ikke nødvendigvis sorteret) og returnerer et *nyt* array,
      * der kun indeholder de unikke elementer fra `arr`. Rækkefølgen af elementernes
      * *første* forekomst i det oprindelige array skal bevares i resultatarrayet.
-     *
+     * <p>
      * Eksempel:
      * arr = {1, 5, 2, 5, 3, 1, 5, 2} => returnerer {1, 5, 2, 3}
      */
@@ -393,7 +258,7 @@ public class Emne01OpgaverArrays {
      * der tager et array af heltal `arr` og returnerer et *nyt* array af `double`,
      * hvor hvert element `result[i]` er gennemsnittet af de første `i+1` elementer
      * af input-arrayet `arr` (dvs. gennemsnittet af `arr[0]...arr[i]`).
-     *
+     * <p>
      * Eksempel:
      * arr = {2, 4, 6, 8} => returnerer {2.0, 3.0, 4.0, 5.0}
      */
@@ -407,5 +272,164 @@ public class Emne01OpgaverArrays {
     public static void main(String[] args) {
         System.out.println("=== Emne 1: Arrays (Udvidet) - Main metode til VALGFRI manuel test ===");
         System.out.println("=== Brug JUnit-tests (Emne01OpgaverArraysTest.java) til primær verificering. ===");
+    }
+
+    /**
+     * Opgave 1.3: Administration af Kursusdeltagere (med Array)
+     * -------------------------------------------------------
+     * Beskrivelse:
+     * Du skal lave et simpelt system til at administrere deltagere på et kursus,
+     * hvor du eksplicit bruger et array til at gemme deltagerne. Dette indebærer at
+     * oprette en 'Participant' klasse og en 'Course' klasse. 'Course' klassen
+     * skal indeholde et array af 'Participant' objekter og metoder til at
+     * tilføje, finde, udskrive og fjerne deltagere.
+     * Opgaven fokuserer på manuel håndtering af arrayets faste størrelse,
+     * inklusiv at rykke elementer ved fjernelse.
+     * <p>
+     * Delopgaver (implementeres som metoder i Course-klassen nedenfor):
+     * - opgave1_3_addParticipant(Participant p)
+     * - opgave1_3_findParticipantById(int participantId)
+     * - opgave1_3_printAllParticipants()
+     * - opgave1_3_removeParticipantById(int participantId)
+     */
+    // --- Hjælpeklasser for Opgave 1.3 følger herunder ---
+    static class Participant {
+        String name;
+        int participantId;
+
+        public Participant(String name, int id) {
+            this.name = name;
+            this.participantId = id;
+        }
+
+        public int getParticipantId() {
+            return participantId;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        @Override
+        public String toString() {
+            return "ID: " + participantId + ", Navn: " + name;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Participant that = (Participant) o;
+            return participantId == that.participantId;
+        }
+    }
+
+    static class Course {
+        private String courseName;
+        private Participant[] participantsArray;
+        private int currentNumberOfParticipants;
+        private int maxParticipants;
+
+        public Course(String courseName, int maxParticipants) {
+            this.courseName = courseName;
+            if (maxParticipants < 0) {
+                this.maxParticipants = 0;
+            } else {
+                this.maxParticipants = maxParticipants;
+            }
+            this.participantsArray = new Participant[this.maxParticipants];
+            this.currentNumberOfParticipants = 0;
+        }
+
+        public int getCurrentNumberOfParticipants() {
+            return currentNumberOfParticipants;
+        }
+
+        public int getMaxParticipants() {
+            return maxParticipants;
+        }
+
+        public Participant[] getParticipantsDirectlyForTest() {
+            return participantsArray;
+        }
+
+
+        /**
+         * Opgave 1.3 Delopgave: addParticipant
+         * Beskrivelse: Tilføjer en deltager til kurset, hvis der er plads.
+         */
+        public boolean opgave1_3_addParticipant(Participant p) {
+            boolean added = false;
+            if (currentNumberOfParticipants < maxParticipants) {
+                if (p != null) {
+                    participantsArray[currentNumberOfParticipants] = p;
+                    added = true;
+                    currentNumberOfParticipants++;
+                }
+            }
+            return added;
+        }
+
+        /**
+         * Opgave 1.3 Delopgave: findParticipantById
+         * Beskrivelse: Finder og returnerer en deltager baseret på ID.
+         */
+        public Participant opgave1_3_findParticipantById(int participantId) {
+            Participant p = null;
+            int i = 0;
+            while (i < participantsArray.length && p == null) {
+                if (participantsArray[i].participantId == participantId) {
+                    p = participantsArray[i];
+                } else {
+                    i++;
+                }
+            }
+            return p;
+        }
+
+        /**
+         * Opgave 1.3 Delopgave: printAllParticipants
+         * Beskrivelse: Udskriver information om alle tilmeldte deltagere.
+         */
+        public void opgave1_3_printAllParticipants() {
+            System.out.println("Deltagere på kurset '" + courseName + "' (Max: " + maxParticipants + ", Aktuelt: " + currentNumberOfParticipants + "):");
+            if (currentNumberOfParticipants == 0) {
+                System.out.println("  (Ingen tilmeldte deltagere)");
+            } else {
+                for (Participant p : participantsArray) {
+                    System.out.println(p);
+                }
+            }
+        }
+
+        /**
+         * Opgave 1.3 Delopgave: removeParticipantById
+         * Beskrivelse: Finder og fjerner en deltager baseret på ID, og rykker elementer sammen.
+         */
+        public boolean opgave1_3_removeParticipantById(int participantId) {
+            if (participantsArray[0] == null) {
+                return false;
+            }
+            int index = -1;
+            int i = 0;
+            while (index == -1 && i < participantsArray.length) {
+                if (participantsArray[i].participantId == participantId) {
+                    index = i;
+                } else {
+                    i++;
+                }
+            }
+            if (index == -1) {
+                return false;
+            } else {
+                while (participantsArray[index] != null) {
+                    participantsArray[index] = participantsArray[index + 1];
+                    index++;
+                }
+                participantsArray[index - 1] = null;
+                currentNumberOfParticipants--;
+                return true;
+            }
+        }
     }
 }
